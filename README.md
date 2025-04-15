@@ -23,7 +23,7 @@ Run locally
 
 ### Create Environment
 
-    $conda create -n myenv python=3.11.11
+    $conda create -n myenv python=3.13.2
     $conda activate myenv
 
 ### Install required packages

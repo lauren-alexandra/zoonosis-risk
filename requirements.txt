@@ -8,8 +8,10 @@ xarray==2024.11.0
 rioxarray==0.18.1
 shapely==2.0.6
 cartopy==0.24.1
+matplotlib==3.10.0
 scipy==1.15.2
 scikit-learn==1.6.1
 tqdm==4.67.1
 pystac==1.12.1
 pystac-client==0.8.6
+earthaccess==0.14.0
