@@ -12,3 +12,31 @@ This project will explore the county in the valley with the highest HPAI detecti
 
 <img width="672" alt="yolo_county_and_bypass" src="https://github.com/user-attachments/assets/d80edea3-df9a-46a1-8d2b-df4b60c66611" />
 
+Run locally
+----
+
+### Download/Clone Git Repository
+
+    $cd <replace with desired location of project folder>
+    $git clone https://github.com/lauren-alexandra/zoonosis-risk.git
+    $cd zoonosis-risk
+
+### Create Environment
+
+    $conda create -n myenv python=3.11.11
+    $conda activate myenv
+
+### Install required packages
+
+    $conda install pip conda-forge::dask conda-forge::xarray-spatial conda-forge::ipywidgets
+    $pip install -r requirements.txt
+
+### Set up Jupyter Notebook Kernel
+
+    $pip install --user ipykernel
+    $python -m ipykernel install --user --name=myenv
+
+### Launch Jupyter Notebook
+
+    (in git bash or other conda environment)
+    $jupyter notebook
