@@ -3,7 +3,7 @@ import re
 import pickle
 from glob import glob
 from math import floor, ceil
-import tqdm
+from tqdm.notebook import tqdm
 
 import pandas as pd
 import numpy as np
@@ -97,7 +97,7 @@ def export_raster(da, raster_path, data_dir):
     output_file = os.path.join(data_dir, os.path.basename(raster_path))
     da.rio.to_raster(output_file)
 
-@cached('granule_metadata', override=False)
+@cached('yolo_granule_metadata', override=False)
 def build_granule_metadata(hls_results):
     """
     Collect granule metadata from HLS tiles.
