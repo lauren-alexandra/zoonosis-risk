@@ -15,3 +15,4 @@ tqdm==4.67.1
 pystac==1.12.1
 pystac-client==0.8.6
 earthaccess==0.14.0
+earthpy==0.9.4
