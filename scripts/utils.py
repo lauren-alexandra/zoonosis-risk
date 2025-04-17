@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import geopandas as gpd
 import rioxarray as rxr
-from rioxarray.merge import merge_arrays
+import rioxarray.merge as rxrmerge
 import xarray as xr
 from shapely.geometry import Polygon
 import earthaccess
@@ -188,6 +188,176 @@ def build_granule_metadata(hls_results):
             crs="EPSG:4326")
 
     return granule_results_gdf
+
+def process_image(uri, bounds_gdf, masked=True, scale=1):
+    """
+    Load, crop, and scale a raster image
+
+    Parameters
+    ----------
+    uri: file-like or path-like
+      File accessor 
+    bounds_gdf: gpd.GeoDataFrame
+      Area of interest 
+
+    Returns
+    -------
+    cropped_da: rxr.DataArray
+      Processed raster
+    """
+    # Load and scale
+    da = rxr.open_rasterio(uri, masked=masked).squeeze() * scale
+
+    # Obtain crs from raster
+    raster_crs = da.rio.crs
+
+    # Match coordinate reference systems
+    bounds_gdf = bounds_gdf.to_crs(raster_crs)
+
+    # Crop to site boundaries
+    cropped_da = da.rio.clip_box(*bounds_gdf.total_bounds)
+
+    return cropped_da
+
+def process_mask(da):
+    """
+    Load a DataArray and process to a boolean mask
+
+    Parameters
+    ----------
+    da: DataArray
+      The input DataArray
+
+    Returns
+    -------
+    mask: np.array
+      Boolean mask
+    """
+    # HLS Quality Assessment layer bits
+    bits_to_mask = [
+        1, # Cloud
+        2, # Adjacent to cloud/shadow
+        3  # Cloud shadow
+    ]
+
+    # Get the mask as bits
+    bits = (
+        np.unpackbits(
+            (
+                # Get the mask as an array
+                da.values
+                # of 8-bit integers
+                .astype('uint8')
+                # with an extra axis to unpack the bits into
+                .reshape(da.shape + (-1,))
+            ), 
+            # List the least significant bit first to match the user guide
+            bitorder='little',
+            # Expand the array in a new dimension
+            axis=-1)
+    )
+    
+    # Calculate the product of the mask and bits to mask
+    mask = np.prod(
+        # Multiply bits and check if flagged
+        bits[..., bits_to_mask]==0,
+        # From the last to the first axis
+        axis=-1
+    )
+
+    return mask
+
+@cached('yolo_reflectance_da_df', override=False)
+def compute_reflectance_da(file_df, boundary_gdf):
+    """
+    Connect to files over VSI (Virtual Filesystem Interface), 
+    crop, cloud mask, and wrangle data.
+    
+    Returns a reflectance DataArray within file DataFrame.
+    
+    Parameters
+    ==========
+    file_df : pd.DataFrame
+        File connection and metadata 
+    boundary_gdf : gpd.GeoDataFrame
+        Boundary use to crop the data
+    """
+    granule_da_rows= []
+
+    # unique dated data granules
+    tile_groups = file_df.groupby(['granule_date', 'tile_id'])
+
+    for (granule_date, tile_id), tile_df in tqdm(tile_groups):
+        print(f'Processing granule {tile_id} {granule_date}')
+
+        # Grab Fmask row from tile group
+        Fmask_row = tile_df.loc[tile_df['band_id'] == 'Fmask']
+        # Load cloud path
+        cloud_path = Fmask_row.uri.values[0]
+        cloud_da = process_image(cloud_path, boundary_gdf, masked=False)
+        # Compute cloud mask
+        cloud_mask = process_mask(cloud_da)
+
+        # Load spectral bands
+        band_groups = tile_df.groupby('band_id')
+
+        for band_name, band_df in band_groups:
+            for index, row in band_df.iterrows():
+                # Process band and retain band scale
+                cropped_da = process_image(row.uri, boundary_gdf, scale=0.0001)
+                cropped_da.name = band_name
+
+                # Apply mask on band to remove unwanted cloud data
+                row['da'] = cropped_da.where(~cropped_da.isin(cloud_mask))
+
+                # Store the resulting DataArray
+                granule_da_rows.append(row.to_frame().T)
+
+    # Reassemble the metadata DataFrame
+    return pd.concat(granule_da_rows)
+
+@cached('yolo_reflectance_da', override=False)
+def create_composite_da(granule_da_df):
+    """
+    Create a composite DataArray from a DataFrame containing granule
+    metadata and corresponding DataArrays.
+
+    Args:
+    granule_da_df (pandas.DataFrame): Granule metadata DataFrame. 
+
+    Returns:
+    xarray.DataArray: Composite granule DataArray. 
+    """
+    composite_das = []
+
+    for band, band_df in tqdm(granule_da_df.groupby('band_id')):
+        merged_das = []
+
+        if (band != 'Fmask'):
+            for granule_date, date_df in tqdm(band_df.groupby('granule_date')):
+
+                # For each date merge granule DataArrays
+                merged_da = rxrmerge.merge_arrays(list(date_df.da))
+
+                # Mask all negative values
+                merged_da = merged_da.where(merged_da > 0)
+                merged_das.append(merged_da)
+
+            # Create composite images across dates (by median date) 
+            # to fill cloud gaps
+            composite_da = xr.concat(
+                merged_das, dim='granule_date').median('granule_date')
+
+            # Add the band as a dimension
+            composite_da['band'] = int(band[1:])
+            
+            # Name the composite DataArray
+            composite_da.name = 'reflectance'
+
+            composite_das.append(composite_da)
+
+    # Concatenate on the band dimension
+    return xr.concat(composite_das, dim='band')
 
 ### Visualization ###
 
