@@ -363,6 +363,42 @@ def create_composite_da(granule_da_df):
     # Concatenate on the band dimension
     return xr.concat(composite_das, dim='band')
 
+def normalize_occurrences(df):
+    """
+    Normalize occurrence data for given species.
+
+    Args:
+    occ_df (pandas.DataFrame): DataFrame of species occurrence.
+
+    Returns:
+    norm_occ_df (pandas.DataFrame): DataFrame of normalized species occurrence.
+    """
+    
+    occ_df = (
+        df
+        # For each month
+        .groupby(['species', 'month'])
+        # count the number of occurrences
+        .agg(occurrences=('species', 'count'))
+    )
+
+    # Drop rare observations (possible misidentification)
+    occ_df = occ_df[occ_df["occurrences"] > 1]
+
+    # Take the mean by month
+    mean_occurrences_by_month = (
+        occ_df
+        .groupby(['month'])
+        .mean()
+    )
+
+    occ_df['norm_occurrences'] = (
+        occ_df
+        / mean_occurrences_by_month
+    )
+
+    return occ_df 
+
 ### Visualization ###
 
 def plot_site(site_da, site_gdf, plots_dir, site_fig_name, plot_title, 
