@@ -377,9 +377,9 @@ def normalize_occurrences(df):
     occ_df = (
         df
         # For each month
-        .groupby(['species', 'month'])
+        .groupby(['host_name', 'month'])
         # count the number of occurrences
-        .agg(occurrences=('species', 'count'))
+        .agg(occurrences=('host_name', 'count'))
     )
 
     # Drop rare observations (possible misidentification)
