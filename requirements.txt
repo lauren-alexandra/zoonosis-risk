@@ -9,8 +9,7 @@ rioxarray==0.18.1
 shapely==2.0.6
 cartopy==0.24.1
 matplotlib==3.10.0
-scipy==1.15.2
-scikit-learn==1.6.1
+jupyter-bokeh==4.0.5
 tqdm==4.67.1
 pystac==1.12.1
 pystac-client==0.8.6
