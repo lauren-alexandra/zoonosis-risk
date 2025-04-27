@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15225925.svg)](https://doi.org/10.5281/zenodo.15225925)
 
-<img src="images/black-necked_stilts_ca_rice_commission.png" alt="Black-necked stilts forage in wet rice fields" width="760" height="500" longdesc="https://www.ucdavis.edu/sites/default/files/media/images/9127201758-024b4c82d0-o.jpg" />
+<img src="images/black-necked_stilts_ca_rice_commission.png" alt="Black-necked stilts forage in wet rice fields" width="800" height="500" longdesc="https://www.ucdavis.edu/sites/default/files/media/images/9127201758-024b4c82d0-o.jpg" />
 
 ## Overview
 
