@@ -70,6 +70,58 @@ Seasonal patterns of HPAI spillover risk will be complicated by changes in clima
 
 Synanthropic species associated with agricultural environments in North America (Owen et al., 2021) and [observed in Yolo Bypass Wildlife Area](https://ebird.org/hotspot/L443535/bird-list), encompassing species in the Orders Charadriiformes (shorebirds), Anseriformes (ducks and geese), Columbiformes (pigeons and doves), and Passeriformes (perching birds), were targeted for the county. After the data were normalized, the species scope was reduced to the following: Snow Goose, Savannah Sparrow (passerine), Red-winged Blackbird (passerine), and Killdeer (shorebird). In the Sacramento Valley and in the greater Central Valley, Northern Shovelers (ducks) have demonstrated the highest avian influenza prevalence and have been identified as a key species to target for future sampling (Bianchini et al., 2021). The structure of HPAI transmission requires a more expansive surveillance however that goes beyond maintenance hosts to encompass bridge hosts. Sampling of peridomestic species such as passerines has occurred in natural settings and settings for resident maintenance hosts, but there have been few instances of sampling in areas either regularly visited by waterfowl or adjacent to or on poultry and dairy farms (Shriner et al., 2016). The identification of bridge hosts within a given area requires simultaneously testing both on wetlands and nearby farms. The presence and use of agricultural operations by wild birds is not as well studied in the Americas as in other regions, and consequently, a framework for HPAI transmissions in such operations is diminished (Owen et al., 2021). Bridge hosts can amplify the speed and severity of infections; one study of wild birds on farms and wetlands (Caron et al., 2014) found that maintenance hosts and target populations were 20 times more likely to connect through bridge hosts than direct contact. Another study (Gaukler et al., 2012) surveyed the behavior of a synanthropic passerine species and noted that there is an additional risk posed by them: potential bridge hosts may frequent multiple farms rather than targeting just one for resources, thereby accelerating pathogen dispersal and the chances of a wider outbreak. More species-specific studies of likely bridge hosts and their use of farms are required for a stronger understanding of spatial and temporal dynamics regarding between-host processes and HPAI transmission in California's Central Valley. Evidenced by these findings, the project will concentrate future analysis and modeling on these elements: 1) Cultivating a deeper understanding of bridge host behavior in Yolo County and across the Central Valley; 2) Analyzing the impact of changes in vegetation on host foraging; 3) Incorporating climate projections for the county to inform the risk assessment and conservation planning; and 4) Developing monthly risk assessments for target species in the wintering season to better track HPAI transmission between the county community.
 
+## References
+
+Bianchini, E. A., Bogiatto, R. J., Donatello, R. A., Casazza, M. L., Ackerman, J. T., De La Cruz, S. E. W., … Cline, T. D. (2021). Host correlates of avian influenza virus infection in wild waterfowl of the Sacramento Valley, California. *Avian Diseases, 66*(1), 20-28. https://doi.org/10.1637/aviandiseases-D-21-00071
+
+Brown, J. D., Goekjian, G., Poulson, R., Valeika, S., & Stallknecht, D. E. (2009). Avian influenza virus in water: Infectivity is dependent on pH, salinity and temperature. *Veterinary Microbiology, 136*(1-2), 20-26. https://doi.org/10.1016/j.vetmic.2008.10.027
+
+California Department of Food and Agriculture. (n.d.). *Wildlife Services Program*. https://www.cdfa.ca.gov/AHFSS/animal_health/Wildlife_Services.html
+
+California Department of Public Health. (n.d.). *Bird flu*. https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Bird-Flu.aspx
+
+California Water Science Center. (n.d.). *California's Central Valley*. USGS. https://ca.water.usgs.gov/projects/central-valley/about-central-valley.html 
+
+Caron, A., Grosbois, V., Etter, E., Gaidet, N., & de Garine-Wichatitsky, M. (2014). Bridge hosts for avian influenza viruses at the wildlife/domestic interface: an eco-epidemiological framework implemented in southern Africa. *Preventive Veterinary Medicine, 117*(3-4), 590-600. https://doi.org/10.1016/j.prevetmed.2014.09.014
+
+Chamberlain, S. (2024). *pygbif* (Version 0.6.4) [Computer software]. GitHub. https://github.com/gbif/pygbif/releases/tag/v0.6.4
+
+Cornell Lab of Ornithology (n.d.). *Yolo Bypass Wildlife Area*. eBird. https://ebird.org/hotspot/L443535/bird-list 
+
+Executive Department State of California. (2024, December 18). *Proclamation of a State of Emergency*. Governor Gavin Newsom. https://www.gov.ca.gov/wp-content/uploads/2024/12/CORRECT-ATTESTED.pdf 
+
+Garone, P. (2020). *The fall and rise of the wetlands of California's great Central Valley*. University of California Press.
+
+Gaukler, S. M., Homan, J. H., Linz, G. M., & Bleier, W. J. (2012). Using radio-telemetry to assess the risk European Starlings pose in pathogen transmission among feedlots. *Human–Wildlife Interactions, 6*(1), 30-37. https://doi.org/10.26077/mtpq-ht61
+
+Hill, N. J., Ma, E. J., Meixell, B. W., Lindberg, M. S., Boyce, W. M., & Runstadler, J. A. (2016). Transmission of influenza reflects seasonality of wild birds across the annual cycle. *Ecology Letters, 19*, 915–925. https://doi.org/10.1111/ele.12629
+
+Jordahl, K., Van den Bossche, J., Fleischmann, M., Wasserman, J., McBride, J., Gerard, J., … Leblanc, F. (2024). *geopandas/geopandas: v1.0.1* (Version 1.0.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.12625316 
+
+Met Office. (2024). *Cartopy: a cartographic python library with a Matplotlib interface* (Version 0.24.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.13905945
+
+Morin, C. W.., Stoner-Duncan, B., Winker, K., Scotch, M., Hess, J. J., Meschke, J. S., … Rabinowitz, P. M. (2018). Avian influenza virus ecology and evolution through a climatic lens. *Environment International, 119*, 241-249. https://doi.org/10.1016/j.envint.2018.06.018
+
+One Health Institute. (n.d.). *What is One Health?*. University of California Davis School of Veterinary Medicine. https://ohi.vetmed.ucdavis.edu/about/one-health
+
+Owen, J. C., Hawley, D. M., & Huyvaert, K. P. (Eds.). (2021). *Infectious disease ecology in wild birds.* Oxford University Press.
+
+Python Software Foundation. (2024). *Python* (Version 3.13.2) [Computer software]. https://docs.python.org/release/3.12.6 
+
+Sacramento Audubon Society. (n.d.). *Pacific Flyway conservation*. https://www.sacramentoaudubon.org/pacific-flyway-conservation
+
+Shriner, S. A., Root, J. J., Lutman, M. W., Kloft, J. M., VanDalen, K. K., Sullivan, H. J., … DeLiberto, T. J. (2016). Surveillance for highly pathogenic  H5 avian influenza virus in  synanthropic wildlife associated  with poultry farms during an acute  outbreak. *Scientific Reports, 6*, 1-11. https://doi.org/10.1038/srep36237
+
+Rudiger, P., Liquet, M., Signell, J., Hansen, S. H., Bednar, J. A., Madsen, M. S., … Hilton, T. W. (2024). *holoviz/hvplot: Version 0.11.2* (Version 0.11.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.13851295 
+
+The pandas development team. (2024). *pandas-dev/pandas: Pandas* (Version 2.2.3) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.3509134
+
+White, L. (2025, March 18). *Winter 2025 update on highly pathogenic avian influenza H5*. USGS. https://www.usgs.gov/media/files/nwhc-wildlife-health-bulletin-avian-influenza-update
+
+Yolo County Resource Conservation District. (n.d.). *Yolo Bypass Wildlife Area*. https://yolorcd.org/what-we-do/yolo-bypass-wildlife-area 
+
+Zhu, S., Harriman, K., Liu, C., Kraushaar, V., Hoover, C., Shim, K., … California Department of Public Health H5 Laboratory Response Team (2025). Human cases of highly pathogenic avian influenza A(H5N1) — California, September–December 2024. *MMWR and Morbidity and Mortality Weekly Report, 74*, 127-133. http://dx.doi.org/10.15585/mmwr.mm7408a1
+
 
 Run locally
 ----
