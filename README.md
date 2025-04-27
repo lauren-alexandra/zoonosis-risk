@@ -4,7 +4,7 @@
 
 <img src="images/black-necked_stilts_ca_rice_commission.png" alt="Black-necked stilts forage in wet rice fields" width="800" height="500" longdesc="https://www.ucdavis.edu/sites/default/files/media/images/9127201758-024b4c82d0-o.jpg" />
 
-## Overview
+#### Overview
 
 **How do natural sources of highly pathogenic avian influenza (HPAI) at the wildlife–agriculture interface influence spillover risk in California's Central Valley?**
 
@@ -28,7 +28,7 @@ The project will explore the county in Central Valley with the highest HPAI dete
 
 <img width="672" alt="yolo_county_and_bypass" src="https://github.com/user-attachments/assets/d80edea3-df9a-46a1-8d2b-df4b60c66611" />
 
-## Data Description
+#### Data Description
 
 [GBIF Occurrence](https://doi.org/10.15468/dl.jqrwjf) data was retrived from the Global Biodiversity Information Facility Occurrence Store and scoped to the wintering period and habitat. There are 105 occurrences across seven species.
 
@@ -36,7 +36,7 @@ The project will explore the county in Central Valley with the highest HPAI dete
 
 Yolo County and Yolo Bypass Wildlife Area boundaries were retrieved from the California State Geoportal. [California County Boundaries](https://gis.data.ca.gov/datasets/8713ced9b78a4abb97dc130a691a8695_0/explore?location=36.651235%2C-119.002032%2C6.22) is a GIS layer hosted by the California Department of Forestry and Fire Protection. [CDFW Public Access Lands](https://gis.data.ca.gov/datasets/b3b6dd29b34247dbb2dd773ea17cc82d_0/explore?location=38.549943%2C-121.691363%2C11.00) dataset offers locations which are publicly accessible lands owned or operated by the California Department of Fish and Wildlife.
 
-## Data Citation
+#### Data Citation
 
 California State Geoportal. (2024). *California County Boundaries* [Data set]. https://gis.data.ca.gov/datasets/CALFIRE-Forestry::california-county-boundaries
 
@@ -58,19 +58,19 @@ Global Biodiversity Information Facility. (2025). *GBIF Occurrence Download: Sno
 
 USGS Daily Values Service. (2025). *CACHE C OUTFLOW FROM SETTLING BASIN NR WOODLAND CA* [Data set]. https://waterdata.usgs.gov/monitoring-location/11452900
 
-## Methods
+#### Methods
 
 The most recent wintering period for migratory waterfowl (10/20/2024-01/31/2025) was studied using the [USGS Daily Values Service](https://waterservices.usgs.gov/docs/dv-service/daily-values-service-details), querying for surface water temperature from a [main habitat inlet](https://waterdata.usgs.gov/monitoring-location/11452900). Daily mean, minimum, and maxium temperature values were calculated and displayed concurrently with holoviews. 
 
 The species occurrences data was accessed by the Python client for the [GBIF API](https://techdocs.gbif.org/en/openapi/v1/occurrence#/) and subset for the temporal scope, species of interest, and habitat coordinates. Each occurrences CSV file was ingested using the [pandas](https://pandas.pydata.org/) library. Species occurrence was normalized by month for the sampling effort and reduced to four species: *Agelaius phoeniceus*, *Anser caerulescens*, *Charadrius vociferus*, and *Passerculus sandwichensis*. Both daily and monthly observations for the four species were plotted over the winter period.
 
-## Discussion
+#### Discussion
 
 Seasonal patterns of HPAI spillover risk will be complicated by changes in climate and loss of suitable overwintering habitat. The reduction of wetlands due to extended drought will relocate significant concentrations of waterfowl toward constructed refuges and flooded agricultural lands, resulting in the emergence of more frequent and larger outbreaks of avian disease. In the non-breeding season, changes in environmental conditions may support increased contact between wild birds and domestic birds in agricultural areas, generating opportunity for viral reassortment and subsequently, new host species (Morin et al., 2018). At present the Yolo Bypass Wildlife Area inlet offers favorable conditions for a high HPAI infectivity rate from late November to February, comprising the majority of the migratory wintering period. However, warming could lessen the duration of infectivity for cold-adapted pathogens both in breeding and non-breeding waters, leading transmission to be influenced more by co-occurrence with shedding waterfowl (Hill et al., 2016). The timing and patterns of migration as well as the availability of food resources will also adjust with warming and produce overwintering sites with greater densities of waterfowl, still vulnerable to substantial outbreaks. 
 
 Synanthropic species associated with agricultural environments in North America (Owen et al., 2021) and [observed in Yolo Bypass Wildlife Area](https://ebird.org/hotspot/L443535/bird-list), encompassing species in the Orders Charadriiformes (shorebirds), Anseriformes (ducks and geese), Columbiformes (pigeons and doves), and Passeriformes (perching birds), were targeted for the county. After the data were normalized, the species scope was reduced to the following: Snow Goose, Savannah Sparrow (passerine), Red-winged Blackbird (passerine), and Killdeer (shorebird). In the Sacramento Valley and in the greater Central Valley, Northern Shovelers (ducks) have demonstrated the highest avian influenza prevalence and have been identified as a key species to target for future sampling (Bianchini et al., 2021). The structure of HPAI transmission requires a more expansive surveillance however that goes beyond maintenance hosts to encompass bridge hosts. Sampling of peridomestic species such as passerines has occurred in natural settings and settings for resident maintenance hosts, but there have been few instances of sampling in areas either regularly visited by waterfowl or adjacent to or on poultry and dairy farms (Shriner et al., 2016). The identification of bridge hosts within a given area requires simultaneously testing both on wetlands and nearby farms. The presence and use of agricultural operations by wild birds is not as well studied in the Americas as in other regions, and consequently, a framework for HPAI transmissions in such operations is diminished (Owen et al., 2021). Bridge hosts can amplify the speed and severity of infections; one study of wild birds on farms and wetlands (Caron et al., 2014) found that maintenance hosts and target populations were 20 times more likely to connect through bridge hosts than direct contact. Another study (Gaukler et al., 2012) surveyed the behavior of a synanthropic passerine species and noted that there is an additional risk posed by them: potential bridge hosts may frequent multiple farms rather than targeting just one for resources, thereby accelerating pathogen dispersal and the chances of a wider outbreak. More species-specific studies of likely bridge hosts and their use of farms are required for a stronger understanding of spatial and temporal dynamics regarding between-host processes and HPAI transmission in California's Central Valley. Evidenced by these findings, the project will concentrate future analysis and modeling on these elements: 1) Cultivating a deeper understanding of bridge host behavior in Yolo County and across the Central Valley; 2) Analyzing the impact of changes in vegetation on host foraging; 3) Incorporating climate projections for the county to inform the risk assessment and conservation planning; and 4) Developing monthly risk assessments for target species in the wintering season to better track HPAI transmission between the county community.
 
-## References
+#### References
 
 Bianchini, E. A., Bogiatto, R. J., Donatello, R. A., Casazza, M. L., Ackerman, J. T., De La Cruz, S. E. W., … Cline, T. D. (2021). Host correlates of avian influenza virus infection in wild waterfowl of the Sacramento Valley, California. *Avian Diseases, 66*(1), 20-28. https://doi.org/10.1637/aviandiseases-D-21-00071
 
