@@ -6,7 +6,7 @@
 
 #### Overview
 
-**How do natural sources of highly pathogenic avian influenza (HPAI) at the wildlife–agriculture interface influence spillover risk in California's Central Valley?**
+How do natural sources of highly pathogenic avian influenza (HPAI) at the wildlife–agriculture interface influence spillover risk in California's Central Valley?
 
 During late 2021, the HPAI outbreak commenced in North America and circulated among 165 wild bird species with a broader host range than the 2014-2015 outbreak. Waterfowl have consistently tested positive for the influenza in addition to [new hosts](https://www.usgs.gov/media/files/nwhc-wildlife-health-bulletin-avian-influenza-update): previously unaffected wild birds, wild and domestic mammals, and humans. The HPAI H5N1 virus has demonstrated some mammalian mutations and been found in over 1,600 poultry operations in every U.S. state and Puerto Rico, almost 1,000 dairy farms in 17 states, and 70 humans. In the state of California, occupational exposure to dairy cows and poultry with suspected HPAI increases the individual risk of infection. The first [human case of HPAI](http://dx.doi.org/10.15585/mmwr.mm7408a1) in the state was identified in September 2024 by monitoring workers on farms with infected cows. From September 30–December 24, 2024, 38 persons tested positive for HPAI A(H5N1); of those individuals, 37 worked on a dairy farm and one was a child with an unknown exposure, marking the first pediatric case in the U.S. 
 
